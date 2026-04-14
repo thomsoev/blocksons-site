@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <h1 className="font-oswald text-5xl md:text-7xl font-bold text-white leading-none mb-4 uppercase tracking-tight">
-              {"Plattsburgh's Most Trusted"}
+              {"The North Country's Most Trusted"}
               <br />
               <span className="text-amber">Tree Removal.</span>
             </h1>
@@ -198,10 +198,10 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <MapPin size={28} className="text-forest mx-auto mb-4" />
           <h2 className="font-oswald text-2xl md:text-3xl font-bold text-forest mb-4 uppercase tracking-wide">
-            Serving All of Clinton County
+            Serving the North Country
           </h2>
           <p className="text-midgray text-lg">
-            Plattsburgh · Morrisonville · Champlain · Peru · Keeseville · and surrounding Clinton County, NY
+            Plattsburgh · Lake Placid · Saranac Lake · Malone · and surrounding communities
           </p>
         </div>
       </section>

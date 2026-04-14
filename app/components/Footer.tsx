@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-offwhite/40">
           <p>&copy; {new Date().getFullYear()} Blocksons LLC. All rights reserved.</p>
-          <p>Serving Plattsburgh, Morrisonville & Clinton County, NY</p>
+          <p>Serving the North Country — Plattsburgh · Lake Placid · Saranac Lake · Malone</p>
         </div>
       </div>
     </footer>
