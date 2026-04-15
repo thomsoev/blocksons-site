@@ -4,6 +4,7 @@ import './globals.css';
 import Header from './components/Header';
 import EmergencyBanner from './components/EmergencyBanner';
 import Footer from './components/Footer';
+import StickyMobileCTA from './components/StickyMobileCTA';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -67,8 +68,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <Header />
         <EmergencyBanner />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-[56px] md:pb-0">{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

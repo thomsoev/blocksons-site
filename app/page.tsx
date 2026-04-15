@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { TreePine, Scissors, CircleDot, AlertTriangle, MapPin, Clock, Star } from 'lucide-react';
+import { TreePine, Scissors, CircleDot, AlertTriangle, MapPin, Clock, Star, Shield, ClipboardList, CheckCircle, Phone } from 'lucide-react';
 import GoogleRatingBadge from './components/GoogleRatingBadge';
 import ReviewCard from './components/ReviewCard';
+import FaqAccordion from './components/FaqAccordion';
 
 export const metadata: Metadata = {
   title: 'Tree Removal in Plattsburgh, NY | Blocksons LLC',
   description:
-    "Blocksons LLC — Plattsburgh's #1 tree removal company. Hazardous removal, stump grinding, 24/7 emergency response. Locally owned. 5.0 ★ Google rating. Serving Clinton County, NY.",
+    "Blocksons LLC — The North Country's most trusted tree removal. Hazardous removal, stump grinding, 24/7 emergency response. Licensed & insured. Free estimates. 5.0 ★ Google rating.",
 };
 
 const services = [
@@ -51,12 +52,33 @@ const reviews = [
   },
 ];
 
+const steps = [
+  {
+    number: '01',
+    icon: <Phone size={28} />,
+    title: 'Request a Free Quote',
+    description: 'Call or fill out our form. Dustin responds fast — usually the same day.',
+  },
+  {
+    number: '02',
+    icon: <ClipboardList size={28} />,
+    title: 'Free On-Site Estimate',
+    description: 'We come out, assess the job, and give you a straight price upfront. No guesswork.',
+  },
+  {
+    number: '03',
+    icon: <CheckCircle size={28} />,
+    title: 'Done Right & Cleaned Up',
+    description: 'Professional removal with full debris cleanup. You won\'t know we were there.',
+  },
+];
+
 export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[560px] md:min-h-[680px] flex items-center"
+        className="relative min-h-[600px] md:min-h-[700px] flex items-center"
         style={{
           background: 'linear-gradient(135deg, #1A1A1A 0%, #1E3A2F 60%, #162b22 100%)',
         }}
@@ -66,6 +88,11 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
+            {/* Differentiator eyebrow */}
+            <div className="inline-flex items-center gap-2 bg-amber/20 border border-amber/40 text-amber text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+              We take the jobs other crews won&apos;t.
+            </div>
+
             <h1 className="font-oswald text-5xl md:text-7xl font-bold text-white leading-none mb-4 uppercase tracking-tight">
               {"The North Country's Most Trusted"}
               <br />
@@ -76,7 +103,7 @@ export default function HomePage() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href="/contact"
                 className="bg-amber hover:bg-amber-dark text-white font-bold font-oswald text-lg px-8 py-4 rounded transition-colors text-center uppercase tracking-wide"
@@ -89,6 +116,21 @@ export default function HomePage() {
               >
                 Call (518) 570-3076
               </a>
+            </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
+              {[
+                { icon: <Shield size={14} />, label: 'Licensed & Insured' },
+                { icon: <CheckCircle size={14} />, label: 'Free Estimates' },
+                { icon: <CheckCircle size={14} />, label: 'Full Cleanup Included' },
+                { icon: <CheckCircle size={14} />, label: '24/7 Emergency' },
+              ].map(({ icon, label }) => (
+                <div key={label} className="flex items-center gap-1.5 text-offwhite/70 text-sm">
+                  <span className="text-amber">{icon}</span>
+                  {label}
+                </div>
+              ))}
             </div>
 
             {/* Google rating badge */}
@@ -130,23 +172,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY BLOCKSONS ── */}
+      {/* ── HOW IT WORKS ── */}
       <section className="bg-offwhite py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-oswald text-3xl md:text-4xl font-bold text-forest text-center mb-4 uppercase tracking-wide">
+            How It Works
+          </h2>
+          <p className="text-midgray text-center mb-12 max-w-xl mx-auto">
+            Simple process, no surprises. From your first call to final cleanup — here&apos;s what to expect.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connector line (desktop) */}
+            <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-amber/30" />
+            {steps.map((step, i) => (
+              <div key={i} className="flex flex-col items-center text-center relative">
+                <div className="w-20 h-20 rounded-full bg-forest flex items-center justify-center text-amber mb-5 relative z-10 shadow-lg">
+                  {step.icon}
+                </div>
+                <div className="font-oswald text-5xl font-bold text-forest/10 absolute top-0 left-1/2 -translate-x-1/2 leading-none select-none">
+                  {step.number}
+                </div>
+                <h3 className="font-oswald text-xl font-bold text-charcoal mb-3 uppercase tracking-wide">
+                  {step.title}
+                </h3>
+                <p className="text-midgray text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-block bg-amber hover:bg-amber-dark text-white font-bold font-oswald text-lg px-8 py-4 rounded transition-colors uppercase tracking-wide"
+            >
+              Start with a Free Quote
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY BLOCKSONS ── */}
+      <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-oswald text-3xl md:text-4xl font-bold text-forest text-center mb-12 uppercase tracking-wide">
             Why Choose Blocksons?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-offwhite">
+            <div className="text-center p-8 bg-offwhite rounded-xl border border-offwhite">
               <div className="flex justify-center mb-4">
                 <Star size={40} className="text-amber fill-amber" />
               </div>
               <div className="font-oswald text-4xl font-bold text-forest mb-2">5.0 Google Rating</div>
               <p className="text-midgray text-sm">
-                49 verified reviews — exceptional for a local trade business in Clinton County.
+                49 verified reviews — exceptional for a local trade business in the North Country.
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-offwhite">
+            <div className="text-center p-8 bg-offwhite rounded-xl border border-offwhite">
               <div className="flex justify-center mb-4">
                 <Clock size={40} className="text-amber" />
               </div>
@@ -155,7 +235,7 @@ export default function HomePage() {
                 Emergency tree removal available around the clock. When a tree falls, we answer.
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-offwhite">
+            <div className="text-center p-8 bg-offwhite rounded-xl border border-offwhite">
               <div className="flex justify-center mb-4">
                 <MapPin size={40} className="text-amber" />
               </div>
@@ -169,7 +249,7 @@ export default function HomePage() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <section className="bg-white py-16">
+      <section className="bg-offwhite py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-oswald text-3xl md:text-4xl font-bold text-forest mb-4 uppercase tracking-wide">
@@ -189,6 +269,29 @@ export default function HomePage() {
             >
               Read All Reviews →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-white py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-oswald text-3xl md:text-4xl font-bold text-forest text-center mb-4 uppercase tracking-wide">
+            Common Questions
+          </h2>
+          <p className="text-midgray text-center mb-10">
+            Everything you need to know before you call.
+          </p>
+          <FaqAccordion />
+          <div className="text-center mt-10">
+            <p className="text-midgray text-sm mb-4">Still have questions?</p>
+            <a
+              href="tel:+15185703076"
+              className="inline-flex items-center gap-2 bg-forest hover:bg-forest-dark text-white font-bold font-oswald text-base px-6 py-3 rounded transition-colors uppercase tracking-wide"
+            >
+              <Phone size={16} />
+              Call Dustin Directly
+            </a>
           </div>
         </div>
       </section>
