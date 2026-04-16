@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { TreePine, Scissors, CircleDot, AlertTriangle, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tree Removal Services | Plattsburgh & Morrisonville, NY | Blocksons LLC',
+  title: 'Tree Removal Services | North Country NY | Blocksons LLC',
   description:
-    'Blocksons LLC offers hazardous tree removal, trimming, stump grinding, emergency response, and utility line work in Plattsburgh, NY and Clinton County. Call (518) 570-3076.',
+    'Blocksons LLC offers hazardous tree removal, trimming, stump grinding, emergency response, and utility line work across the North Country. Call (518) 570-3076.',
 };
 
 const services = [
@@ -20,7 +21,8 @@ const services = [
       'Precision felling to protect structures and landscaping',
       'Full cleanup and debris hauling included',
     ],
-    alt: 'Hazardous tree removal near a home in Plattsburgh NY',
+    photo: '/photos/hazardous-removal.jpg',
+    alt: 'Dustin Blockson assessing a large hazardous tree removal job in the North Country NY',
   },
   {
     icon: <Scissors size={40} />,
@@ -33,7 +35,8 @@ const services = [
       'Shape pruning for ornamental trees',
       'Storm-prep trimming to reduce wind load',
     ],
-    alt: 'Tree trimming and pruning service in Plattsburgh NY',
+    photo: null,
+    alt: 'Tree trimming and pruning service in the North Country NY',
   },
   {
     icon: <CircleDot size={40} />,
@@ -46,7 +49,8 @@ const services = [
       'Safe for replanting or lawn restoration',
       'Available as a standalone service or paired with removal',
     ],
-    alt: 'Stump grinding and removal service in Clinton County NY',
+    photo: null,
+    alt: 'Stump grinding and removal service in the North Country NY',
   },
   {
     icon: <AlertTriangle size={40} />,
@@ -59,7 +63,8 @@ const services = [
       'Rapid removal to restore access and safety',
       'Insurance documentation available upon request',
     ],
-    alt: 'Emergency tree removal response in Plattsburgh NY after storm damage',
+    photo: null,
+    alt: 'Emergency tree removal response in the North Country NY after storm damage',
   },
   {
     icon: <Zap size={40} />,
@@ -72,7 +77,8 @@ const services = [
       'Experience with high-risk utility corridor work',
       'Protects your home and the grid from tree damage',
     ],
-    alt: 'Tree trimming near utility lines and power lines in Plattsburgh NY',
+    photo: '/photos/utility-work.jpg',
+    alt: 'Blocksons bucket truck working near utility lines and power lines in the North Country NY',
   },
 ];
 
@@ -89,7 +95,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-offwhite/70 text-lg max-w-2xl">
-            From routine trimming to the most hazardous removals in Clinton County — Blocksons handles it all.
+            From routine trimming to the most hazardous removals in the North Country — Blocksons handles it all.
           </p>
         </div>
       </section>
@@ -102,21 +108,32 @@ export default function ServicesPage() {
               key={service.name}
               className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 items-start`}
             >
-              {/* Photo placeholder */}
+              {/* Photo or placeholder */}
               <div className="w-full md:w-5/12 shrink-0">
-                {/* TODO: Replace placeholder cards with real before/after photos from Dustin */}
-                <div
-                  className="w-full aspect-video rounded-xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-forest/30"
-                  style={{ background: 'linear-gradient(135deg, #1E3A2F22 0%, #1A1A1A11 100%)' }}
-                  role="img"
-                  aria-label={service.alt}
-                >
-                  <div className="text-forest/40">{service.icon}</div>
-                  <p className="text-forest/50 text-sm font-medium text-center px-4">
-                    [Photo — {service.name}]
-                  </p>
-                  <p className="text-forest/30 text-xs">TODO: Replace with real job photo from Dustin</p>
-                </div>
+                {service.photo ? (
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src={service.photo}
+                      alt={service.alt}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
+                ) : (
+                  // TODO: Replace with real job photo from Dustin
+                  <div
+                    className="w-full aspect-video rounded-xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-forest/30"
+                    style={{ background: 'linear-gradient(135deg, #1E3A2F22 0%, #1A1A1A11 100%)' }}
+                    role="img"
+                    aria-label={service.alt}
+                  >
+                    <div className="text-forest/40">{service.icon}</div>
+                    <p className="text-forest/50 text-sm font-medium text-center px-4">
+                      [Photo — {service.name}]
+                    </p>
+                    <p className="text-forest/30 text-xs">TODO: Replace with real job photo from Dustin</p>
+                  </div>
+                )}
               </div>
 
               {/* Content */}

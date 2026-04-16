@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { TreePine, Scissors, CircleDot, AlertTriangle, MapPin, Clock, Star, Shield, ClipboardList, CheckCircle, Phone } from 'lucide-react';
 import GoogleRatingBadge from './components/GoogleRatingBadge';
 import ReviewCard from './components/ReviewCard';
@@ -83,8 +84,16 @@ export default function HomePage() {
           background: 'linear-gradient(135deg, #1A1A1A 0%, #1E3A2F 60%, #162b22 100%)',
         }}
       >
-        {/* TODO: Replace with real hero photo from Dustin — uncomment Image below */}
-        {/* <Image src="/hero.jpg" alt="Hazardous tree removal in Plattsburgh NY" fill className="object-cover opacity-30" priority /> */}
+        {/* Hero photo */}
+        <Image
+          src="/photos/hero.jpg"
+          alt="Blocksons LLC tree removal near power lines in the North Country NY"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 bg-charcoal/70" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
@@ -269,6 +278,65 @@ export default function HomePage() {
             >
               Read All Reviews →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── MEET DUSTIN ── */}
+      <section className="bg-forest py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Photo */}
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/photos/hazardous-removal.jpg"
+                alt="Dustin Blockson assessing a large complex tree removal job in the North Country"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent" />
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="text-amber font-bold text-sm uppercase tracking-widest mb-3">
+                Owner &amp; Operator
+              </div>
+              <h2 className="font-oswald text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight leading-none">
+                Meet Dustin.
+              </h2>
+              <div className="space-y-4 text-offwhite/80 leading-relaxed">
+                <p>
+                  Dustin Blockson is born and raised in the North Country — and that means something.
+                  He knows these communities, these properties, and the kind of hardworking, straight-shooting
+                  service people here expect.
+                </p>
+                <p>
+                  When you hire Blocksons, you get Dustin. Not a crew of strangers — the owner himself,
+                  on every job, from the estimate through the final cleanup. He takes on the work other
+                  companies won&apos;t, gets it done right the first time, and doesn&apos;t leave until
+                  the yard is clean.
+                </p>
+                <p>
+                  49 five-star Google reviews don&apos;t happen by accident. They happen because Dustin
+                  genuinely cares about doing right by his customers and his community.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="bg-amber hover:bg-amber-dark text-white font-bold font-oswald text-base px-6 py-3 rounded transition-colors uppercase tracking-wide text-center"
+                >
+                  Get a Free Quote
+                </Link>
+                <Link
+                  href="/reviews"
+                  className="border border-white/40 hover:border-white text-white font-oswald font-bold text-base px-6 py-3 rounded transition-colors uppercase tracking-wide text-center"
+                >
+                  Read the Reviews
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
