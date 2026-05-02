@@ -19,10 +19,49 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Tree Removal in Plattsburgh, NY | Blocksons LLC',
+  title: {
+    default: 'Tree Removal Plattsburgh NY | Blocksons LLC | North Country',
+    template: '%s | Blocksons LLC',
+  },
   description:
-    'Blocksons LLC — Plattsburgh\'s most trusted tree removal company. Hazardous removal, stump grinding, emergency response. 5.0 ★ on Google. Call (518) 570-3076.',
+    'Blocksons LLC — North Country\'s most trusted tree removal company. Hazardous removal, stump grinding, emergency response. 5.0 ★ on Google. Call (518) 570-3076.',
   metadataBase: new URL('https://blocksons-site.vercel.app'),
+  keywords: [
+    'tree removal Plattsburgh NY',
+    'tree service North Country NY',
+    'hazardous tree removal Clinton County',
+    'stump grinding Plattsburgh',
+    'emergency tree removal North Country',
+    'tree trimming Lake Placid',
+    'Blocksons LLC',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://blocksons-site.vercel.app',
+    siteName: 'Blocksons LLC',
+    title: 'Tree Removal Plattsburgh NY | Blocksons LLC | North Country',
+    description:
+      'North Country\'s most trusted tree removal company. Hazardous removal, stump grinding, emergency response. 5.0 ★ on Google. Call (518) 570-3076.',
+    images: [
+      {
+        url: '/photos/hero.jpg',
+        width: 1920,
+        height: 1080,
+        alt: 'Blocksons LLC tree removal near power lines in the North Country NY',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tree Removal Plattsburgh NY | Blocksons LLC',
+    description:
+      'North Country\'s most trusted tree removal. Hazardous removal, stump grinding, 24/7 emergency response. 5.0 ★ on Google.',
+    images: ['/photos/hero.jpg'],
+  },
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app',
+  },
 };
 
 const localBusinessSchema = {
@@ -48,8 +87,24 @@ const localBusinessSchema = {
     ratingValue: '5.0',
     reviewCount: '49',
   },
-  url: 'https://blocksonsllc.com',
-  areaServed: ['Plattsburgh', 'Morrisonville', 'Clinton County', 'NY'],
+  url: 'https://blocksons-site.vercel.app',
+  description:
+    'Blocksons LLC specializes in hazardous tree removal, stump grinding, tree trimming, and 24/7 emergency response across the North Country of New York.',
+  areaServed: [
+    'Plattsburgh', 'Morrisonville', 'Lake Placid', 'Saranac Lake', 'Malone',
+    'Clinton County', 'Essex County', 'Franklin County', 'NY',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tree Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hazardous Tree Removal' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tree Trimming & Pruning' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Stump Grinding' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Tree Removal' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Work Near Utility Lines' } },
+    ],
+  },
 };
 
 export default function RootLayout({

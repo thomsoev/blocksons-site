@@ -7,9 +7,83 @@ import ReviewCard from './components/ReviewCard';
 import FaqAccordion from './components/FaqAccordion';
 
 export const metadata: Metadata = {
-  title: 'Tree Removal in Plattsburgh, NY | Blocksons LLC',
+  title: 'Tree Removal Plattsburgh NY | North Country | Blocksons LLC',
   description:
     "Blocksons LLC — The North Country's most trusted tree removal. Hazardous removal, stump grinding, 24/7 emergency response. Licensed & insured. Free estimates. 5.0 ★ Google rating.",
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do you offer free estimates?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — always. Dustin will come out, assess the job, and give you a written estimate with no obligation. No surprises, no pressure.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are you licensed and insured?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Blocksons LLC is fully insured for tree removal and land clearing work. We carry liability coverage to protect your property throughout every job.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you remove trees in tight spaces where equipment won\'t fit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'That\'s our specialty. Most of our jobs involve oversized or hazardous trees in spots other crews won\'t touch — next to homes, near fences, with no equipment access. Dustin has the skill and experience to handle what others turn down.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you work near power lines and utility lines?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Blocksons has experience working near utility lines and will coordinate with the appropriate providers when needed. This is specialized work — not every tree service can do it safely.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you clean up after the job?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Always. Every job ends with full cleanup and debris removal. We don\'t leave stumps, brush piles, or sawdust behind — your yard is clean when we leave.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How fast can you respond for emergency work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We\'re available 24/7 for emergencies. Storm damage, downed trees, trees on structures — call (518) 570-3076 and Dustin will pick up.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does a typical removal take?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most residential tree removals are completed in a single day. Larger or more complex jobs may take longer — Dustin will give you a realistic timeline during the estimate.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What areas do you serve?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We serve Plattsburgh, Lake Placid, Saranac Lake, Malone, and the surrounding North Country region. Not sure if we cover your area? Call and ask — (518) 570-3076.',
+      },
+    },
+  ],
 };
 
 const services = [
@@ -77,6 +151,10 @@ const steps = [
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ── HERO ── */}
       <section
         className="relative min-h-[600px] md:min-h-[700px] flex items-center"

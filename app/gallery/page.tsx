@@ -3,9 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Tree Removal Gallery | Before & After | Blocksons LLC',
+  title: 'Tree Removal Photos | Before & After | Plattsburgh NY | Blocksons LLC',
   description:
-    'Before and after photos of tree removal, stump grinding, and trimming jobs in Plattsburgh and Clinton County, NY. See the Blocksons LLC difference.',
+    'Before and after photos of tree removal, stump grinding, and trimming jobs in Plattsburgh and Clinton County, NY. Real work by Dustin Blockson.',
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app/gallery',
+  },
+  openGraph: {
+    title: 'Tree Removal Gallery | Before & After | Plattsburgh NY',
+    description:
+      'Real job photos — hazardous removal, stump grinding, utility line work across the North Country NY.',
+    url: 'https://blocksons-site.vercel.app/gallery',
+    images: [{ url: '/photos/utility-work.jpg', width: 1200, height: 675, alt: 'Blocksons LLC bucket truck near power lines' }],
+  },
 };
 
 const realPhotos = [

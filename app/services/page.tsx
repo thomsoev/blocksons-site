@@ -4,9 +4,18 @@ import Image from 'next/image';
 import { TreePine, Scissors, CircleDot, AlertTriangle, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tree Removal Services | North Country NY | Blocksons LLC',
+  title: 'Tree Removal Services Plattsburgh NY | Hazardous & Emergency | Blocksons LLC',
   description:
-    'Blocksons LLC offers hazardous tree removal, trimming, stump grinding, emergency response, and utility line work across the North Country. Call (518) 570-3076.',
+    'Blocksons LLC offers hazardous tree removal, trimming, stump grinding, 24/7 emergency response, and utility line work across Plattsburgh and the North Country. Free estimates. Call (518) 570-3076.',
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app/services',
+  },
+  openGraph: {
+    title: 'Tree Removal Services | North Country NY | Blocksons LLC',
+    description:
+      'Hazardous removal, stump grinding, trimming, emergency response. Serving Plattsburgh, Lake Placid, Saranac Lake, and the North Country.',
+    url: 'https://blocksons-site.vercel.app/services',
+  },
 };
 
 const services = [

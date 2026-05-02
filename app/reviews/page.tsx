@@ -4,9 +4,48 @@ import GoogleRatingBadge from '../components/GoogleRatingBadge';
 import ReviewCard from '../components/ReviewCard';
 
 export const metadata: Metadata = {
-  title: '5.0 Google Reviews | Blocksons LLC Tree Service',
+  title: '5-Star Reviews | Tree Removal Plattsburgh NY | Blocksons LLC',
   description:
-    'Blocksons LLC has a perfect 5.0 star rating on Google with 49 reviews. Read what Plattsburgh and Clinton County customers say about Dustin and his tree service.',
+    'Blocksons LLC has a perfect 5.0 star rating on Google with 49 reviews. Read what Plattsburgh and Clinton County customers say about Dustin and his tree removal service.',
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app/reviews',
+  },
+};
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Blocksons LLC',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    bestRating: '5',
+    worstRating: '1',
+    reviewCount: '49',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Brandon Craft' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody:
+        'Highly recommend Blocksons for tree service work! Dustin was great to work with and is a true master of his trade. We had a large, precarious tree partially over hanging the home we recently purchased and there was no room to fit equipment.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Laura Leavine' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody:
+        'Dustin is amazing. He cut down both of these huge trees. He is very professional and cleans up the area. I would highly recommend Dustin.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Andrew Krug' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody:
+        'Dustin was great to work with, from coming out for the estimate, having a formal estimate and all the way through clean up after tree removal. I highly recommend and appreciate his follow-through, honesty, and professionalism.',
+    },
+  ],
 };
 
 const reviews = [
@@ -30,6 +69,10 @@ const reviews = [
 export default function ReviewsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
       {/* Page header */}
       <section
         className="py-20"

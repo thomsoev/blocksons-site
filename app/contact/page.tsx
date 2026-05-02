@@ -2,9 +2,17 @@ import type { Metadata } from 'next';
 import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Get a Free Tree Removal Quote | Plattsburgh, NY | Blocksons LLC',
+  title: 'Free Tree Removal Quote | Plattsburgh, NY | Call (518) 570-3076',
   description:
-    'Request a free tree removal estimate from Blocksons LLC in Plattsburgh, NY. Hazardous removal, trimming, stump grinding, emergency response. Call (518) 570-3076.',
+    'Request a free tree removal estimate from Blocksons LLC in Plattsburgh, NY. Hazardous removal, trimming, stump grinding, 24/7 emergency response. Call (518) 570-3076.',
+  alternates: {
+    canonical: 'https://blocksons-site.vercel.app/contact',
+  },
+  openGraph: {
+    title: 'Free Tree Removal Quote | Plattsburgh, NY | Blocksons LLC',
+    description: 'Call (518) 570-3076 or fill out the form. Free estimates, fast response.',
+    url: 'https://blocksons-site.vercel.app/contact',
+  },
 };
 
 export default function ContactPage() {
